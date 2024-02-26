@@ -5,14 +5,14 @@ duration_sum: 0.818ms
 1부터 1000까지 더한 값 : 500500
 */
 
-console.time("duration_sum");
-
 let sum = 0;
+
+console.time("duration_sum");
 
 for (let i = 1; i <= 1000; i++) {
   sum += i;
 }
 
-console.log("1부터 1000까지 더한 값 : %d", sum);
-
 console.timeEnd("duration_sum");
+
+console.log("1부터 1000까지 더한 값 : %d", sum);
