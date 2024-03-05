@@ -5,7 +5,8 @@ const app = express();
 
 app.use(cookieParser());
 
-// app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
+
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", function (request, response) {
@@ -16,9 +17,15 @@ app.get("/", function (request, response) {
   }
 });
 
-app.get("/login", function (request, response) {
-  fs.readFile("./public/login.html", function (error, data) {
-    response.send(data.toString("utf8"));
+app.get("/login.html", function (request, response) {
+  fs.readFile("login.html", "utf8", function (error, data) {
+    if (error) {
+      console.log("adadd");
+      console.log(__dirname);
+      console.log(error);
+    } else {
+      response.send(data);
+    }
   });
 });
 
